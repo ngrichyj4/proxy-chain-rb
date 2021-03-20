@@ -5,7 +5,7 @@ module ProxyChainRb
     def initialize(instance_id = nil)
       self.script_path          =   File.expand_path("../node_js/proxy-chain-server/server.js", __FILE__)
       self.instance_id          =   instance_id.to_s.empty? ? SecureRandom.hex : instance_id
-      self.pid_command          =   "ps aux | grep \"[n]ode\" | awk '/proxy-chain-instance-id-#{self.instance_id}/'"
+      self.pid_command          =   "ps auxww | grep \"[n]ode\" | awk '/proxy-chain-instance-id-#{self.instance_id}/'"
       self.generated_proxy_url  =   nil
     end
     
